@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="todo-input" placeholder="Enter a new task...">
+            <button id="add-btn">Add Task</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    document.getElementById('add-btn').addEventListener('click', function () {
+        const taskInput = document.getElementById('todo-input');
+        const taskValue = taskInput.value.trim();
+
+        if (taskValue !== '') {
+            const listItem = document.createElement('li');
+            listItem.textContent = taskValue;
+
+            document.getElementById('todo-list').appendChild(listItem);
+
+            taskInput.value = '';
+        } else {
+            alert('Please enter a task!');
+        }
+    });
+</script>
+
+</html>
